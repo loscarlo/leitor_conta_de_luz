@@ -5,7 +5,7 @@ import csv
 import pandas as pd
 
 # Define o caminho do arquivo CSV
-arquivo_csv = "/Users/carloscarvalho/Downloads/first_dashboard_colunas_novas_tratado.csv"
+arquivo_csv = "/Users/carloscarvalho/Downloads/first_dashboard_colunas_novas_tratado.csv" # path do arquivo do BD em uso para o scrit do Dashboard
 
 # Load the CSV data into a DataFrame
 df = pd.read_csv(arquivo_csv)
