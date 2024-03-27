@@ -27,15 +27,11 @@ pattern_total_pagar = r'CONSUMO FATURADO Nº DIAS FAT[\s\S]+?(\d+,\d+)'
 pattern_preco_unitario = r'Energia Elétrica kWh kWh [\d\.]+ ([\d\.,]+)'
 pattern_medidor = r'MEDIDOR: (\d+)'
 pattern_data_emissao = r'DATA DE EMISSÃO: (\d{2}/\d{2}/\d{4})'
-# pattern_injetada_tusd = r'Energia Injetada kWh - TUSD ([\d\.,]+)'
-# pattern_injetada_gd_tusd = r'Energia Injetada GD kWh - TUSD ([\d\.,]+)'
 pattern_injetada_cons = r'(?:Energia Injetada kWh - TUSD kWh|Energia Injetada GD kWh -TUSD kWh) (\d+)'  # r'(?:Energia Injetada kWh - TUSD kWh|Energia Injetada GD kWh - TUSD kWh) (\d+\.\d+)'
 
 # Define o caminho da pasta contendo os arquivos PDF
 pasta_contendo_pdfs = "/Users/carloscarvalho/Library/Mobile Documents/com~apple~CloudDocs/BKP/solar/contas de Luz UCs/FEV24"
 
-# # Define o caminho do arquivo CSV
-# arquivo_csv = "/Users/carloscarvalho/Downloads/first_dashboard_colunas_novas_tratado.csv"
 
 # Lê todas as linhas do arquivo CSV
 with open(arquivo_csv, 'r', newline='') as csv_file:
@@ -70,8 +66,6 @@ with open(arquivo_csv, 'w', newline='') as csv_file:
                 preco_unitario = extract(pattern_preco_unitario, text)
                 medidor = extract(pattern_medidor, text)
                 data_de_emissao = extract(pattern_data_emissao, text)
-                # valor_injetada_tusd = extract(pattern_injetada_tusd, text)
-                # valor_injetada_gd_tusd = extract(pattern_injetada_gd_tusd, text)
                 valor_injetada_cons = extract(pattern_injetada_cons, text)
 
                 # Search for the line containing "Energia kWh Tarifa Convencional"
